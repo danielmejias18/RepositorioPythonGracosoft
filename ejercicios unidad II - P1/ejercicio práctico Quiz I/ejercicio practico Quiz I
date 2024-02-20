@@ -1,0 +1,38 @@
+listaPasajeros = [("Manuel Juárez", 19823451, "Buenos Aires", "Argentina"), 
+                  ("Silvana Paredes", 22709128, "Glasgow", "Argentina"), 
+                  ("Rosa Ortiz", 15123978, "Glasgow", "Lisboa", "Portugal"), 
+                  ("Luciana Hernández", 38981374, "Liverpool", "Inglaterra")]
+
+def contarPasajeros(lista):
+    listaContadores = []
+    contPasajeros = 0
+    for n in range(0, len(lista)):
+        pais = lista[n][3]
+        #print("Pais: ", pais)
+        for n in range(0, len(lista)):
+            if pais == lista[n][3]:
+                contPasajeros=contPasajeros+1
+        paisContPasajeros = [pais, contPasajeros]
+        listaContadores.append(paisContPasajeros)
+        contPasajeros = 0
+    return listaContadores
+
+def definirMenor(lista):
+    menor = lista[0]
+    for n in range(0, len(lista)):
+        valorLista = lista[n]
+        if valorLista[1] <= menor[1]:
+            menor = lista[n]
+    return menor
+
+def definirMayor(lista):
+    mayor = lista[0]
+    for n in range(0, len(lista)):
+        if lista[n][1] >= mayor[1]:
+            mayor = lista[n]
+    return mayor
+
+listaContadores = contarPasajeros(listaPasajeros)
+#print(listaContadores)
+print("Menor: ", definirMenor(listaContadores)[0])
+print("Mayor: ", definirMayor(listaContadores)[0])

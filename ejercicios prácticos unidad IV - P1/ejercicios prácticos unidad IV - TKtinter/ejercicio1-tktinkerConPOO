@@ -1,0 +1,68 @@
+import tkinter as tk
+from tkinter import ttk
+from tkinter import messagebox 
+
+class Application:
+    def __init__(self):
+        self.ventana1 = tk.Tk()
+        self.ventana1.title("!Hola mundo¡")
+
+        self.label = tk.Label(self.ventana1, text="Label")
+        self.label.place(x=10, y=10)
+
+        self.btn = tk.Button(self.ventana1, text="Click", command=self.click)
+        self.btn.place(x=10, y=30)
+
+        self.btnMsg = tk.Button(self.ventana1, text="Mostrar mensaje", command=self.mostrarMensaje)
+        self.btnMsg.place(x=50, y=30)
+
+        self.txt = tk.Entry(self.ventana1, width=10)
+        self.txt.place(x=10, y=70)
+
+        self.valor = tk.IntVar()
+        self.valor.set(1)
+
+        self.rad1 = tk.Radiobutton(self.ventana1, value=1, text="Primero", variable=self.valor)
+        self.rad1.place(x=10, y=90)
+
+        self.rad2 = tk.Radiobutton(self.ventana1, value=2, text="Segundo", variable=self.valor)
+        self.rad2.place(x=100, y=90)
+
+        self.chk_estado1 = tk.BooleanVar()
+        self.chk_estado1.set(True)
+
+        self.chk_btn = tk.Checkbutton(self.ventana1, text="seleccion1", var=self.chk_estado1)
+        self.chk_btn.place(x=10, y=120)
+
+        self.chk_estado2 = tk.BooleanVar()
+        #self.chk_estado2.set(True)
+
+        self.chk_btn = tk.Checkbutton(self.ventana1, text="seleccion2", var=self.chk_estado2)
+        self.chk_btn.place(x=90, y=120)
+
+        dias_semana = ("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
+        self.cmb_box = ttk.Combobox(self.ventana1, values=dias_semana)
+        self.cmb_box.current(0)
+        self.cmb_box.place(x=10, y=150)
+
+        self.ventana1.geometry("600x600")
+
+        self.ventana1.mainloop()
+
+    def click(self):
+        #messagebox.showinfo("Mensaje informativo", "Este es un mensaje informativo.")
+        if self.valor.get() == 1:
+         resultado = "Hello " + self.txt.get() + " primero"
+        elif self.valor.get() == 2:
+         resultado = "Hello " + self.txt.get() + " segundo"
+        self.label.configure(text=resultado)
+
+    def mostrarMensaje(self):
+       res = messagebox.askyesno("Una pregunta", "¿Te gusta Python?")
+       print(res)
+
+def main():
+    aplication1 = Application()
+
+if __name__ == "__main__":
+    main()

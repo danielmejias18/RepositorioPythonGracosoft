@@ -1,0 +1,13 @@
+# Paso 1: Abrir el archivo en modo léctura (Leer = read)
+
+archivo = open("archivo.txt", "r")
+
+# Paso 2: Leer el archivo
+
+for linea in archivo:
+    print(linea)
+
+# Paso 3. Cerrar archivo
+    
+archivo.close()
+

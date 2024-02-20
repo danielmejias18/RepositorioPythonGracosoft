@@ -1,0 +1,56 @@
+import tkinter as tk
+from tkinter import ttk
+
+class Aplicacion:
+    def __init__(self):
+        self.ventana1 = tk.Tk()
+        self.ventana1.title("Cantidad Checkbuttons")
+
+        self.valor = tk.IntVar()
+        self.valor.set(0)
+
+        self.chk_estado1 = tk.BooleanVar()
+        #self.chk_estado1.set(True)
+
+        self.chk_btn = tk.Checkbutton(self.ventana1, text="C#", var=self.chk_estado1)
+        self.chk_btn.place(x=20, y=20)
+
+        self.chk_estado2 = tk.BooleanVar()
+        #self.chk_estado2.set(True)
+
+        self.chk_btn = tk.Checkbutton(self.ventana1, text="Java", var=self.chk_estado2)
+        self.chk_btn.place(x=20, y=40)
+
+        self.chk_estado3 = tk.BooleanVar()
+
+        self.chk_btn = tk.Checkbutton(self.ventana1, text="Python", var=self.chk_estado3)
+        self.chk_btn.place(x=20, y=60)
+       
+
+        self.buttonCount = tk.Button(self.ventana1, text = "Verificar", command=self.click )
+        self.buttonCount.place(x = 20, y= 80)
+
+        self.label = tk.Label(self.ventana1, text= "Cantidad :")
+        self.label.place(x = 20, y=100)
+       
+       
+        self.ventana1.mainloop()
+
+    def click(self):
+        print("Valor: ", self.valor.get())
+        self.valor.set(0)
+        if (self.chk_estado1.get() == True):
+            self.valor.set(self.valor.get()+1)
+        if (self.chk_estado2.get() == True):
+            self.valor.set(self.valor.get()+1)
+        if (self.chk_estado3.get() == True):
+            self.valor.set(self.valor.get()+1)
+        self.label.configure(text="Cantidad seleccionada: " + str(self.valor.get()))
+
+
+
+
+def main():
+    aplicacion= Aplicacion() 
+    
+main()

@@ -1,0 +1,6 @@
+import csv
+
+with open("archivoCSV.csv", "r") as file:
+    csv_reader = csv.reader(file)
+    for linea in csv_reader:
+        print(linea)

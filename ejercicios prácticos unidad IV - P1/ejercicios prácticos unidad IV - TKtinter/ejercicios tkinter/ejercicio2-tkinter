@@ -1,0 +1,31 @@
+import tkinter as tk
+
+class Application:
+    def __init__(self):
+        self.ventana1 = tk.Tk()
+        self.ventana1.title("Elevear al cuadrado")
+
+        self.label = tk.Label(self.ventana1, text="Ingrese un número: ")
+        self.label.place(x=10, y=10)
+
+        self.txt = tk.Entry(self.ventana1, width=10)
+        self.txt.place(x=10, y=70)
+
+        self.btnInc = tk.Button(self.ventana1, text="Elevar al cuadrado", command=self.ElevarAlCuadrado)
+        self.btnInc.place(x=10, y=30)
+
+        self.label2 = tk.Label(self.ventana1, text="El resultado es: ")
+        self.label2.place(x=10, y=90)
+
+        self.ventana1.mainloop()
+
+    def ElevarAlCuadrado(self):
+        valor = int(self.txt.get())
+        cuadrado = valor ** 2
+        self.label2.configure(text="El resultado es: " + str(cuadrado))
+
+def main():
+    aplication1 = Application()
+
+if __name__ == "__main__":
+    main()
