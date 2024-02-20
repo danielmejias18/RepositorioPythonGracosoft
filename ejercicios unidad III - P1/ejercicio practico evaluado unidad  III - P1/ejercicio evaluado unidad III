@@ -1,0 +1,89 @@
+class Agenda:
+    def __init__(self):
+        self.contactos = []
+    
+    def agregar_contacto(self):
+        print("Agregar contacto")
+        nom = input("Ingrese nombre: ")
+        telf = int(input("Ingrese telefono: "))
+        email = input("Ingrese email: ")
+        self.contactos.append({"nombre":  nom, "telf": telf, "email":  email})        
+
+    def listar_contacto(self):
+        print("Listar contacto")
+        if len(self.contactos) == 0:
+            print("No hay contactos agregados a la agenda.")
+        else: 
+            for n in range(0, len(self.contactos)):
+                print(self.contactos[n]["nombre"])
+
+    def buscar_contacto(self):
+        print("Buscar contacto")
+        nombre = input("Ingrese el nombre del contacto: ")
+        for n in range(0, len(self.contactos)):
+            if(nombre == self.contactos[n]["nombre"]):
+                print("Datos del contacto. ")
+                print("Nombre: "+ self.contactos[n]["nombre"])
+                print("Teléfono: "+ str(self.contactos[n]["telf"]))
+                print("E-mail: "+ self.contactos[n]["email"])
+                return n
+
+    def editar_contacto(self):
+        print("Editar contacto")
+        n = self.buscar_contacto()
+        condicion = False
+
+        while condicion ==False:
+            print("Selecciona lo que deseas editar")
+            print("1.Nombre")
+            print("2.Teléfono")
+            print("3.E-mail")
+            print("4. Fin")
+            opcion = int(input("Ingrese la opción que desee"))
+            if opcion==1:
+                nombre = input("Ingrese el nombre: ")
+                self.contactos[n]["nombre"] = nombre
+            if opcion==2:
+                telef = input("Ingrese el teléfono: ")
+                self.contactos[n]["telf"] = int(telef)
+            if opcion==3:
+                email = input("Ingrese el E-mail: ")
+                self.contactos[n]["email"] = email
+            if opcion==4:
+                condicion = True
+        self.listar_contacto()
+
+
+def menu():
+    print("1. Añadir contacto.")
+    print("1. Listar contactos.")
+    print("1. Buscar contacto.")
+    print("1. Editar contacto.")
+    print("5. Salir. ")
+
+def main():
+
+    menu()
+    agenda = Agenda()
+
+    opcion = int(input("Ingrese la opción de su preferencia: "))
+
+    while opcion != 5:
+        if opcion == 1:
+            agenda.agregar_contacto()
+            menu()
+        if opcion == 2:
+            agenda.listar_contacto()
+            menu()
+        if opcion == 3:
+            agenda.buscar_contacto()
+            menu()
+        if opcion == 4:
+            agenda.editar_contacto()
+            menu()
+        if opcion == 5:
+            return
+
+        opcion = int(input("Ingrese la opción de su preferencia: "))
+
+main()        

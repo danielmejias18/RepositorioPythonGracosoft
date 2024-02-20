@@ -1,0 +1,15 @@
+# Abrimos el archivo de texto plano en modo escritura (w)
+
+archivo = open("archivo.txt", "w")
+
+# Escribimos una línea en el archivo
+
+#archivo.write("Cadena de texto")
+
+# Escribimos dos líneas en el archivo
+
+archivo.writelines(["Línea uno \n", "Línea dos \n"])
+
+# Cerramos el archivo
+
+archivo.close()

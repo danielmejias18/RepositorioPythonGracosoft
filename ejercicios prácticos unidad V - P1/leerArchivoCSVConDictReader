@@ -1,0 +1,6 @@
+import csv
+
+with open("archivoCSV.csv") as file:
+    csv_reader = csv.DictReader(file)
+    for linea in csv_reader:
+        print(linea['nombre'], linea['precio'] )

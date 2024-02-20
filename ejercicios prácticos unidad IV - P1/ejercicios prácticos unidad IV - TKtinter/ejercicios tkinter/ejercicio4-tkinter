@@ -1,0 +1,56 @@
+import tkinter as tk
+from tkinter import ttk
+
+class Application:
+    def __init__(self):
+        self.ventana1 = tk.Tk()
+        self.ventana1.title("Número mayor")
+        
+        self.label1 = tk.Label(self.ventana1, text="Numero 1: ")
+        self.label1.place(x=20, y=20)
+
+        self.txt1 = tk.Entry(self.ventana1, width=10)
+        self.txt1.place(x=80, y=20)
+
+        self.label2 = tk.Label(self.ventana1, text="Numero 2: ")
+        self.label2.place(x=20, y=40)
+
+        self.txt2 = tk.Entry(self.ventana1, width=10)
+        self.txt2.place(x=80, y=40)
+
+        self.label3 = tk.Label(self.ventana1, text="Numero 3: ")
+        self.label3.place(x=20, y=60)
+
+        self.txt3 = tk.Entry(self.ventana1, width=10)
+        self.txt3.place(x=80, y=60)
+
+        self.btn = tk.Button(self.ventana1, text="Verificar", command=self.click)
+        self.btn.place(x=20, y=100)
+
+        self.label4 = tk.Label(self.ventana1, text="Numero mayor: ")
+        self.label4.place(x=20, y=120)
+
+        self.txt4 = tk.Entry(self.ventana1, width=10)
+        self.txt4.place(x=80, y=120)
+
+        self.ventana1.mainloop()
+
+    def click(self):
+        self.txt4.delete(0, tk.END)
+        num1 = self.txt1.get()
+        num2 = self.txt2.get()
+        num3 = self.txt3.get()
+        print("Valor: ", num1, num2, num3)
+        if (num1 > num2 and num1 > num3 ):
+            self.txt4.insert(0, str(num1))
+        elif (num2 > num1 and num2 > num3 ):
+            self.txt4.insert(0, str(num2))
+        elif (num3 > num2 and num3 > num1 ):
+            self.txt4.insert(0, str(num3))
+
+
+def main():
+    aplication1 = Application()
+
+if __name__ == "__main__":
+    main()

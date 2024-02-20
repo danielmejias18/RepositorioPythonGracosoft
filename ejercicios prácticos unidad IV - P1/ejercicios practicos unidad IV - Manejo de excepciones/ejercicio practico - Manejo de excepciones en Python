@@ -1,0 +1,12 @@
+def division(a, b):
+    return a / b
+
+def calcular():
+    print(division(1, 0))
+
+calcular()
+    
+try: 
+    calcular()
+except Exception: 
+    print("No se permite la división por cero")
